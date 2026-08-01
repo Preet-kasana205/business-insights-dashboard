@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routes import listings
+from app.routes import listings, dashboard
 
 app = FastAPI(title="Business Listings Dashboard API")
 
@@ -13,7 +13,7 @@ app.add_middleware(
 )
 
 app.include_router(listings.router)
-
+app.include_router(dashboard.router)
 
 @app.get("/")
 def root():

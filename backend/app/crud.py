@@ -41,3 +41,6 @@ def get_source_wise_count(db: Session):
         .all()
     )
     return [{"source": source, "count": count} for source, count in results]
+
+def get_total_count(db: Session):
+    return db.query(func.count(Listing.id)).scalar()
