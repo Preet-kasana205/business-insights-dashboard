@@ -10,5 +10,6 @@ export const getTotalListings = () => api.get("/dashboard/total");
 export const getCityWiseCounts = () => api.get("/dashboard/city-wise");
 export const getCategoryWiseCounts = () => api.get("/dashboard/category-wise");
 export const getSourceWiseCounts = () => api.get("/dashboard/source-wise");
+export const getLatestListings = () => api.get("/listings/latest?limit=10");
 
 export default api;

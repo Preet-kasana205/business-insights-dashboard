@@ -15,3 +15,7 @@ def add_listing(listing: ListingCreate, db: Session = Depends(get_db)):
 @router.get("/", response_model=list[ListingOut])
 def read_listings(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return crud.get_listings(db, skip, limit)
+
+@router.get("/latest", response_model=list[ListingOut])
+def latest_listings(limit: int = 10, db: Session = Depends(get_db)):
+    return crud.get_latest_listings(db, limit)

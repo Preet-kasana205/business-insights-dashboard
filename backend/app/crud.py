@@ -44,3 +44,11 @@ def get_source_wise_count(db: Session):
 
 def get_total_count(db: Session):
     return db.query(func.count(Listing.id)).scalar()
+
+def get_latest_listings(db: Session, limit: int = 10):
+    return (
+        db.query(Listing)
+        .order_by(Listing.id.desc())
+        .limit(limit)
+        .all()
+    )

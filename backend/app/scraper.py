@@ -49,7 +49,7 @@ def generate_mock_listings(count: int, scraped: list[dict] = None):
             source = "WikipediaScrape"
         else:
             name = f"{random.choice(CITIES)} {random.choice(BUSINESS_SUFFIXES)} {i}"
-            city = random.choice(CITIES)
+            city = CITIES[i % len(CITIES)]
             source = random.choice(SOURCES)
 
         listings.append({
